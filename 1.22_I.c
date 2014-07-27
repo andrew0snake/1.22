@@ -2,7 +2,7 @@
 #define LEN 50
 
 int gett(char text[10000]);
-void form(char text[10000]);
+void form(int len,char text[10000]);
 
 void main ()
 {
@@ -39,7 +39,7 @@ int gett(char text[10000])
     return i;
 }
 
-void form(char text[10000])
+void form(int len,char text[10000])
 {
 
     int i;
