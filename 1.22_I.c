@@ -42,12 +42,37 @@ int gett(char text[10000])
 void form(int len,char text[10000])
 {
 
-    int i,j,prov;
+    int i,j,k,l,s,t,prov;
+    char tmp[TAB];
 
-    i=j=prov=0;
+    i=j=k=l=s=prov=0;
     
     for (i=0;i<=len;++i){
+	tmp[j]=text[i];
+
+	if (i==len)
+	    ++s;
+
+	if ( (j==TAB) || (i==len) ) {
+	    prov=0;
+	    ++s;
+	    k=j;
+
+	    while ( (prov=0) && (k>0) )
+		if ( (tmp[k]!=' ') && (tmp[k]!='\t') && (tmp[k]!='\n') )
+		    prov=1;
+		else
+		    --k;
+
+	    for (l=0;)
+	}
+	else {
+	    j=0;
 	
+	}
+	
+	
+	++j
     }
 
 
