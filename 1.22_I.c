@@ -44,4 +44,6 @@ void form(int len,char text[10000])
 
     int i;
 
+    for (i=0;i<len;++i)
+
 }
