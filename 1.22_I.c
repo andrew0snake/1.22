@@ -42,22 +42,41 @@ int gett(char text[10000])
 void form(int len,char text[10000])
 {
 
-    int i,j,k,l,s,t;
+    int i,j,k,l,s,t,diff;
 
-    i=j=k=l=s=0;
+    i=j=k=l=s=t=diff=0;
     
     for (i=0;i<=len;++i){
     
 	++j;
 	if (j==TAB){
 	    ++s;
-	    for()
-	    if ( (text[i]!=' ') && (text[i]!='\t') && (text[i]!='\n') && (j==(TAB) ) ) {
-//	    	printf("TAB point=%d;char text[%d]=%c\n",i,i,text[i]);
-		j=0;
+	    if (i>TAB)
+		diff=i-TAB;
+	    else 
+		diff=0;
+
+	    k=i;
+	    t=(-1);
+
+	    printf("i=%d;diff=%d;k=%d;t=%d;\n",i,diff,k,t);
+	    printf("----------------------------------------\n");
+
+	    while( (k>=diff) && (t<0) ){
+		printf("step before testing k=%d;t=%d;text[k]=%c\n",k,t,text[k]);
+		if ( (text[k]!=' ') && (text[k]!='\t') && (text[k]!='\n') ) 
+		    t=k;
+		else
+		    --k;
+		printf("step after testing  k=%d;t=%d\n",k,t);
 	    }
+	    
+	    if (t>=0)
+		printf("We got it!) t=%d;\n\n",t);
+	j=0;
 	}
-//	printf("i=%d;j=%d;text[%d]=%c\n",i,j,i,text[i]);
-	}
+	
+	printf("in char text[%d]=%c;in digit text[%d]=%d;i=%d,j=%d\n ",i,text[i],i,text[i],i,j);
+    }
 
 }
