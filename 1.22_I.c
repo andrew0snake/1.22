@@ -69,10 +69,14 @@ void form(int len,char text[10000])
 		else
 		    --k;
 		printf("step after testing  k=%d;t=%d\n",k,t);
-	    }
-	    
+	    } 
+	        
 	    if (t>=0)
 		printf("We got it!) t=%d;\n\n",t);
+	    if (t>0){
+		for(l=len;l>(t+1);--l)
+		    text[l]=text[l-1];
+	    }
 	j=0;
 	}
 	
