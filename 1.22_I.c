@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define TAB 50
+#define TAB 5
 
 int gett(char text[10000]);
 void form(int len,char text[10000]);
@@ -81,6 +81,6 @@ void form(int len,char text[10000])
     }
 
 
-    for (i=0;i<len;++i)
+//    for (i=0;i<len;++i)
 
 }
