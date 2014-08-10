@@ -15,7 +15,7 @@ void main ()
     while( (l=gett(text) )>0 ){
 	printf("Non formatted text seems so:\n%s",text);
 	form(l,text);
-	printf("Same text after formatting seems so:\n%s",text);
+//	printf("Same text after formatting seems so:\n%s",text);
 //    for (i=0;i<l;++i)
 //	printf("Symbol %i-th in char=%c; and in digit=%d\n",i,text[i],text[i]);
 
@@ -42,45 +42,51 @@ int gett(char text[10000])
 void form(int len,char text[10000])
 {
 
-    int i,j,k,l,s,t,diff,prov;
-    char tmp[TAB];
+    int i,j,k,l,s,t,diff;
 
-    i=j=k=l=s=prov=diff=0;
+    i=j=k=l=s=t=diff=0;
     
     for (i=0;i<=len;++i){
-	tmp[j]=text[i];
-
-	if (j==(TAB-1) )
+    
+	++j;
+	if (j==TAB){
 	    ++s;
+	    if (i>TAB)
+		diff=i-TAB;
+	    else 
+		diff=0;
 
-	if ( (j==(TAB-1) ) || (i==len) ) {
-	    prov=0;
-	    if (i==len)
-		k=i-s*TAB;
-	    else
-		k=j;
+	    k=i;
+	    t=(-1);
 
-	    while ( (prov=0) && (k>0) )
-		if ( (tmp[k]!=' ') && (tmp[k]!='\t') && (tmp[k]!='\n') )
-		    prov=1;
+	    printf("i=%d;diff=%d;k=%d;t=%d;\n",i,diff,k,t);
+	    printf("----------------------------------------\n");
+
+	    while( (k>=diff) && (t<0) ){
+		printf("step before testing k=%d;t=%d;text[k]=%c\n",k,t,text[k]);
+		if ( (text[k]!=' ') && (text[k]!='\t') && (text[k]!='\n') ) 
+		    t=k;
 		else
 		    --k;
-
-	    for (l=0;l<k;++l){
-		printf("%c",tmp[l]);
+		printf("step after testing  k=%d;t=%d\n",k,t);
+	    } 
+	        
+	    if (t>=0)
+		printf("We got it!) t=%d;\n\n",t);
+	    if (t>0){
+		for(l=len;l>(t+1);--l)
+		    text[l]=text[l-1];
 	    }
-	    
-	    if (i!=len){
-		diff=TAB-k;
-		i=i-diff;
-	    }
-	
+	j=0;
 	}
 	
-    	++j;
+	printf("in char text[%d]=%c;in digit text[%d]=%d;i=%d,j=%d\n ",i,text[i],i,text[i],i,j);
     }
 
+<<<<<<< HEAD
 
 //    for (i=0;i<len;++i)
 
+=======
+>>>>>>> bde1c3a984b90969ab17137090208efb67818d3a
 }
