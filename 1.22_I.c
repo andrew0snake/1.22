@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define TAB 5
+#define TAB 50
 
 int gett(char text[10000]);
 void form(int len,char text[10000]);
@@ -59,16 +59,16 @@ void form(int len,char text[10000])
 	    k=i;
 	    t=(-1);
 
-	    printf("i=%d;diff=%d;k=%d;t=%d;\n",i,diff,k,t);
-	    printf("----------------------------------------\n");
+//	    printf("i=%d;diff=%d;k=%d;t=%d;\n",i,diff,k,t);
+//	    printf("----------------------------------------\n");
 
 	    while( (k>=diff) && (t<0) ){
-		printf("step before testing k=%d;t=%d;text[k]=%c\n",k,t,text[k]);
+//		printf("step before testing k=%d;t=%d;text[k]=%c\n",k,t,text[k]);
 		if ( (text[k]!=' ') && (text[k]!='\t') && (text[k]!='\n') )//&& (text[k]!=EOF) ) 
 		    t=k;
 		else
 		    --k;
-		printf("step after testing  k=%d;t=%d;text[%d]=%c\n",k,t,k,text[k]);
+//		printf("step after testing  k=%d;t=%d;text[%d]=%c\n",k,t,k,text[k]);
 	    } 
 	        
 	    if (t>=0)
@@ -82,7 +82,7 @@ void form(int len,char text[10000])
 	j=0;
 	}
 	
-	printf("in char text[%d]=%c;in digit text[%d]=%d;i=%d,j=%d\n ",i,text[i],i,text[i],i,j);
+//	printf("in char text[%d]=%c;in digit text[%d]=%d;i=%d,j=%d\n ",i,text[i],i,text[i],i,j);
     }
 //    for (i=0;i<len;++i)
 }
